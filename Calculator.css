@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main {
+
+  min-height: 100vh;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator_container {
+  padding: 0.8rem;
+  background-color: rgb(242, 242, 242);
+
+  /* For centering container */
+  /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+}
+
+.calculator_row {
+
+  width: 376px;
+  display: flex;
+  position: relative;
+
+/* -------------------------------------------------------------------------------- */
+  /* below property used to remove white spaces between inline-block elements
+  Explanation:- As inline-block elements converts line-breaks or multiple space to 1 whitespace */
+  font-size: 0;  
+
+  
+  /* gap: 1rem; */
+}
+
+/*  */
+.calculator_displaybox {
+  outline: none;
+  border: none;
+  background-color: rgb(252, 252, 252);
+  width: 100%;
+  height: 4rem;
+  text-align: right;
+  font-size: 2rem;
+}
+
+/* General Styling for buttons */
+.button {
+  font-size: 1.1rem;
+  padding: 0;
+  outline: none;
+  border: none;
+  margin: 0.1rem;
+}
+
+.small_buttons {
+  width: 4.5rem;
+  height: 3.7rem;
+}
+
+.large_buttons {
+  width: 10rem;
+  height: 3.9rem;
+}
+
+
+/* Background styles */
+.transparent_button {
+  background-color: transparent;
+}
+
+.grey_button {
+  background-color: rgb(247, 247, 248);
+}
+
+.whitish_button {
+  
+  background-color: rgb(252, 252, 252);
+}
+
+.bluish_button {
+  background-color: #9DC7E8;
+}
+
+
+/* Typography */
+.fontWeight_600 {
+  font-weight: 500;
+}
+
+.grey_font{
+  color: #C3C5C5;
+}
+
+.italic_font {
+  font-style: oblique;
+}
+
+
+.fontSize_40{
+  font-size: 1.3rem;
+}
+
+.button:active {
+  background: rgb(221, 221, 221);
+}
+.button:hover {
+  background: rgb(173, 173, 173);
+}
+
+
+
+/* backspace image styles */
+
+.backspace_img {
+  width: 3rem;
+}
+
+.backspace:active {
+  background-color: #f1f1f1;
+  
+}
+
+.dropdown_wrapper {
+  position: relative;
+}
+
+.trigno > span {
+  display: inline-block;
+  
+  margin-inline: 0.4rem;
+  transform: rotate(90deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown_wrapper:hover span  {
+  transform: rotate(270deg);
+}
+
+
+/* dropdowns for trigonometry and functions */
+
+.dropdown_container{
+  display: none;
+  /* width: ; */
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  top: 77%;
+  width: 9rem;
+  background: #F1F1F1;
+  box-shadow: 0px 0px 5px -2px rgb(77 75 75);
+  z-index: 1;
+}
+
+.dropdown_container > button {
+  padding-block: 0.4rem;
+}
+
+.dropdown_wrapper:hover .dropdown_container  {
+  display: flex;
+}

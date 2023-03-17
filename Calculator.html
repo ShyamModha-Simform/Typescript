@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="Calculator.css" />
+
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <!-- <h1>Calculator</h1> -->
+      <div class="calculator_container">
+        <!-- Calculator Rows with 2 to 5 buttons -->
+        <!-- Row 1 -->
+        <div class="calculator_row">
+          <input
+            id="displayInput"
+            type="text"
+            placeholder="0"
+            class="calculator_displaybox"
+            autofocus
+          />
+        </div>
+
+        <!-- Row 2 -->
+        <div class="calculator_row">
+          <button
+            id="angle_value_toggle"
+            class="button small_buttons transparent_button fontWeight_600"
+          >
+            DEG
+          </button>
+          <button
+            id="scientific_notation"
+            class="button small_buttons transparent_button fontWeight_600"
+          >
+            F-E
+          </button>
+        </div>
+        <!-- Row 3 -->
+        <div class="calculator_row">
+          <button
+            id="MC"
+            class="button small_buttons transparent_button grey_font"
+          >
+            MC
+          </button>
+          <button
+            id="MR"
+            class="button small_buttons transparent_button grey_font"
+          >
+            MR
+          </button>
+          <button
+            id="M+"
+            class="button small_buttons transparent_button fontWeight_600"
+          >
+            M+
+          </button>
+          <button
+            id="M-"
+            class="button small_buttons transparent_button fontWeight_600"
+          >
+            M-
+          </button>
+          <button
+            id="MS"
+            class="button small_buttons transparent_button fontWeight_600"
+          >
+            MS
+          </button>
+        </div>
+        <!-- Row 4 -->
+        <div class="calculator_row">
+          <!-- Dropdowns -->
+
+          <div class="dropdown_wrapper">
+            <button class="button large_buttons transparent_button trigno">
+              Trigonometry<span> ></span>
+            </button>
+            <div class="dropdown_container">
+              <button id="sin" class="button transparent_button">sin</button>
+              <button id="cos" class="button transparent_button">cos</button>
+              <button id="tan" class="button transparent_button">tan</button>
+            </div>
+          </div>
+
+          <div class="dropdown_wrapper">
+            <button class="button large_buttons transparent_button trigno">
+              Functions <span> ></span>
+            </button>
+            <div class="dropdown_container">
+              <button id="ceil" class="button transparent_button">
+                ceil()
+              </button>
+              <button id="floor" class="button transparent_button">
+                floor()
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Row 5 -->
+        <div class="calculator_row">
+          <button id="function_toggle" class="button small_buttons grey_button">
+            2<sup>nd</sup>
+          </button>
+          <button id="pi_value" class="button small_buttons grey_button">
+            π
+          </button>
+          <button id="e_value" class="button small_buttons grey_button">
+            e
+          </button>
+          <button
+            id="clearAll"
+            class="button small_buttons grey_button fontSize_40"
+          >
+            C
+          </button>
+          <button
+            id="clearOne"
+            class="button small_buttons grey_button backspace"
+          >
+            <img
+              id="clearOne"
+              class="backspace_img"
+              src="Back_button.png"
+              alt="backspace"
+            />
+          </button>
+        </div>
+        <!-- Row 6 -->
+        <div class="calculator_row">
+          <button
+            id="square"
+            class="button small_buttons grey_button italic_font"
+          >
+            x<sup>2</sup>
+          </button>
+          <button
+            id="1_uppon_x"
+            class="button small_buttons grey_button italic_font"
+          >
+            1/x
+          </button>
+          <button id="abs" class="button small_buttons grey_button">
+            |<span class="italic_font">x</span>|
+          </button>
+          <button id="exp" class="button small_buttons grey_button">exp</button>
+          <button id="mod" class="button small_buttons grey_button">mod</button>
+        </div>
+        <!-- Row 7 -->
+        <div class="calculator_row">
+          <button
+            id="sqrt"
+            class="button small_buttons grey_button italic_font"
+          >
+            √x
+          </button>
+          <button id="(" class="button small_buttons grey_button">(</button>
+          <button id=")" class="button small_buttons grey_button">)</button>
+          <button
+            id="fact"
+            class="button small_buttons grey_button italic_font"
+          >
+            n!
+          </button>
+          <button
+            id="division"
+            class="button small_buttons grey_button fontSize_40"
+          >
+            /
+          </button>
+        </div>
+        <!-- Row 8 -->
+        <div class="calculator_row">
+          <button
+            id="power"
+            class="button small_buttons grey_button italic_font"
+          >
+            x<sup class="italic_font">y</sup>
+          </button>
+          <button
+            id="7"
+            accesskey="7"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            7
+          </button>
+          <button
+            id="8"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            8
+          </button>
+          <button
+            id="9"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            9
+          </button>
+          <button
+            id="multiplication"
+            class="button small_buttons grey_button fontSize_40"
+          >
+            *
+          </button>
+        </div>
+        <!-- Row 9 -->
+        <div class="calculator_row">
+          <button id="10s_power" class="button small_buttons grey_button">
+            10<sup>x</sup>
+          </button>
+          <button
+            id="4"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            4
+          </button>
+          <button
+            id="5"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            5
+          </button>
+          <button
+            id="6"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            6
+          </button>
+          <button
+            id="subtraction"
+            class="button small_buttons grey_button fontSize_40"
+          >
+            &minus;
+          </button>
+        </div>
+        <!-- Row 10 -->
+        <div class="calculator_row">
+          <button id="log" class="button small_buttons grey_button">log</button>
+          <button
+            id="1"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            1
+          </button>
+          <button
+            id="2"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            2
+          </button>
+          <button
+            id="3"
+            class="button small_buttons whitish_button fontWeight_600 fontSize_40"
+          >
+            3
+          </button>
+          <button
+            id="addition"
+            class="button small_buttons grey_button fontSize_40"
+          >
+            &plus;
+          </button>
+        </div>
+        <!-- Row 11 -->
+        <div class="calculator_row">
+          <button id="ln" class="button small_buttons grey_button">ln</button>
+          <button id="toggleSign" class="button small_buttons whitish_button">
+            +/-
+          </button>
+          <button
+            id="0"
+            class="button small_buttons whitish_button fontWeight_600"
+          >
+            0
+          </button>
+          <button
+            id="dot"
+            class="button small_buttons whitish_button fontWeight_600"
+          >
+            .
+          </button>
+          <button
+            id="calculate"
+            class="button small_buttons bluish_button fontSize_40"
+          >
+            &equals;
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="Calculator.js" type="module"></script>
+  </body>
+</html>
