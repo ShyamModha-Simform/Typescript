@@ -24,24 +24,28 @@ const buttons_attributes = [
       symbol: " floor( ",
       formula: "Math.floor(",
       type: "Math_function",
+      angle: "RAD",
     },
     {
       name: "sin",
       symbol: " sin( ",
       formula: "Math.sin(",
-      type: "roundOffs",
+      type: "Math_function",
+      angle: "RAD",
     },
     {
       name: "cos",
       symbol: " cos( ",
       formula: "Math.cos(",
       type: "Math_function",
+      angle: "RAD",
     },
     {
       name: "tan",
       symbol: " tan( ",
       formula: `Math.tan(`,
       type: "Math_function",
+      angle: "RAD",
     },
   
     {
