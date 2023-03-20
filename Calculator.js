@@ -1,33 +1,53 @@
 import buttons_attributes from "./button_attributes.js";
 
-let angleInDegree = false;
-let displayBox = document.querySelector("input");
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button"); // Buttons array from Markup
+let angleInDegree = false; // To check RAD or DEG
+let displayBox = document.querySelector("input"); // Input box shown on screen
+let displayExpression = displayBox.value; // To carry display value throughout file
 
-let displayExpression = displayBox.value;
+// Additional Event Listeners-----------------------------------------------------------------
 
-// Additional Event Listeners
 displayBox.addEventListener("input", function (e) {
-  displayExpression = displayBox.value;
+  displayExpression = displayBox.value; // To support keyboard entries and Direct changes
+});
+
+displayBox.addEventListener("blur", () => {
+  displayBox.focus(); // For auto focus
 });
 
 document.getElementById("angle_value_toggle").addEventListener("click", (e) => {
   angleInDegree = !angleInDegree;
   e.target.innerText = angleInDegree ? "RAD" : "DEG";
+  // console.log(angleInDegree);
+  buttons_attributes.forEach((ele) => {
+    if (ele.angle) {
+      angleInDegree
+        ? (ele.formula = `Math.${ele.symbol}`)
+        : (ele.formula = `Math.${ele.symbol}(Math.PI/180)*`);
+    }
+  });
 });
 
+displayBox.addEventListener("keydown", function (e) {
+  //checks whether the pressed key is "Enter"
+  if (e.key === "Enter") {
+    displayExpression = displayBox.value;
+    displayExpression = calculateAnswer(displayExpression);
+    displayBox.value = displayExpression;
+  }
+});
+
+// Mapping over button_attributes array
 buttons.forEach((btn) => {
   btn.addEventListener("click", function (e) {
-    // console.log(e.target.id);
-
     let matched_button = buttons_attributes.find((ele) => {
       if (ele.name === e.target.id) return btn;
     });
 
-    // console.log(matched_button);
     if (matched_button === undefined) return;
-    switch (matched_button.type) {
 
+    // Found clicked button's attributes
+    switch (matched_button.type) {
       case "calculate":
         displayExpression = displayBox.value;
         displayExpression = calculateAnswer(displayExpression);
@@ -45,7 +65,6 @@ buttons.forEach((btn) => {
 
       case "backspace":
         backspace(matched_button);
-        // console.log(displayExpression);
         displayBox.value = displayExpression;
         break;
 
@@ -60,11 +79,16 @@ buttons.forEach((btn) => {
   });
 });
 
-// calculation function
+// Calculation function
+
 function calculateAnswer(expr) {
-  const exprBuffer = generateEvaluationArray(expr.split(" "));
-  const ans = eval(exprBuffer);
-  return String(ans);
+  try {
+    const exprBuffer = generateEvaluationArray(expr.split(" "));
+    const ans = eval(exprBuffer);
+    return  ans ? String(ans) : '';
+  } catch (e) {
+    alert("Invalid Input....");
+  }
 }
 
 // Helper function for converting human readable string into executable
@@ -113,15 +137,15 @@ function fact(btn_Obj) {
 }
 
 // Helper function for Backspace buttons
-function backspace(btn_Obj){
+function backspace(btn_Obj) {
   if (btn_Obj.name === "clearAll") {
     displayExpression = "";
   } else if (btn_Obj.name === "clearOne") {
     displayExpression = displayExpression.substring(
       0,
       displayExpression.length - 1
-      );
-      console.log(displayExpression);
+    );
+    console.log(displayExpression);
   }
   displayBox.value = displayExpression;
 }
