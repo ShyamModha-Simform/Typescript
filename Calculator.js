@@ -17,11 +17,11 @@ displayBox.addEventListener("blur", () => {
 
 document.getElementById("angle_value_toggle").addEventListener("click", (e) => {
   angleInDegree = !angleInDegree;
-  e.target.innerText = angleInDegree ? "RAD" : "DEG";
+  e.target.innerText = !angleInDegree ? "RAD" : "DEG";
   // console.log(angleInDegree);
   buttons_attributes.forEach((ele) => {
     if (ele.angle) {
-      angleInDegree
+      !angleInDegree
         ? (ele.formula = `Math.${ele.symbol}`)
         : (ele.formula = `Math.${ele.symbol}(Math.PI/180)*`);
     }
@@ -37,7 +37,7 @@ displayBox.addEventListener("keydown", function (e) {
   }
 });
 
-// Mapping over button_attributes array
+// Mapping over button_attributes array-------------------------------------
 buttons.forEach((btn) => {
   btn.addEventListener("click", function (e) {
     let matched_button = buttons_attributes.find((ele) => {
@@ -79,7 +79,7 @@ buttons.forEach((btn) => {
   });
 });
 
-// Calculation function
+// Calculation function--------------------------
 
 function calculateAnswer(expr) {
   try {
@@ -164,19 +164,20 @@ function storingFeatures(ele) {
     case "MR": //memory recall
       displayExpression += localStorage.getItem("latestAnswer");
       displayBox.value = displayExpression;
-
       break;
+
     case "M+":
       tempBuffer = localStorage.getItem("latestAnswer");
       displayExpression = Number(tempBuffer) + Number(displayExpression);
       localStorage.setItem("latestAnswer", displayExpression);
-
       break;
+
     case "M-":
       tempBuffer = localStorage.getItem("latestAnswer");
       displayExpression = Number(tempBuffer) - Number(displayExpression);
       localStorage.setItem("latestAnswer", displayExpression);
       break;
+
     case "MC": //memory clear
       localStorage.removeItem("latestAnswer");
       document.getElementById("MC").classList.add("grey_font");
