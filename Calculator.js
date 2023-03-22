@@ -1,5 +1,6 @@
 import buttons_attributes from "./button_attributes.js";
 
+let toggleButtonNamedSecond = false;
 const buttons = document.querySelectorAll("button"); // Buttons array from Markup
 let angleInDegree = false; // To check RAD or DEG
 let displayBox = document.querySelector("input"); // Input box shown on screen
@@ -27,6 +28,12 @@ document.getElementById("angle_value_toggle").addEventListener("click", (e) => {
     }
   });
 });
+
+document.getElementById("function_toggle").addEventListener("click", (e)=>{
+  toggleButtonNamedSecond = !toggleButtonNamedSecond;
+  e.target.innerHTML = toggleButtonNamedSecond ? "1<sup>nd</sup>" : "2<sup>nd</sup>";
+  console.log("clicked", toggleButtonNamedSecond);
+})
 
 displayBox.addEventListener("keydown", function (e) {
   //checks whether the pressed key is "Enter"

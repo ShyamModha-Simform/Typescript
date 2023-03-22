@@ -131,7 +131,6 @@ main {
 
 .trigno > span {
   display: inline-block;
-
   margin-inline: 0.4rem;
   transform: rotate(90deg);
   transition: transform 0.3s ease-in-out;
