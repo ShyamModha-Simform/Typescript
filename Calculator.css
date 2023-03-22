@@ -11,7 +11,7 @@ input::-webkit-inner-spin-button {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 92vh;
   padding: 1rem;
 
   display: flex;
