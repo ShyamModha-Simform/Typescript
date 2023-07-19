@@ -1,9 +1,17 @@
-const buttons_attributes = [
+interface button_object_type {
+    name: string;
+    symbol: string;
+    formula: unknown;
+    type?: string;
+    angle?: string;
+}
+
+const buttons_attributes: button_object_type[] = [
     //  Math.Functions
     {
-        name: "square",
-        symbol: " ^2 ",
-        formula: "**2",
+        name: "square", // Same as id value
+        symbol: " ^2 ", // Symbol for inputing string to displayBox when onClick event occurs
+        formula: "**2", // Will use to convert human readble string to the string that can be evaluated by JS eval()
         type: "number", // Button's Value
     },
     {
@@ -12,6 +20,7 @@ const buttons_attributes = [
         formula: "toExponential(",
         type: "scientific_notation",
     },
+
     {
         name: "ceil",
         symbol: " ceil( ",
@@ -46,10 +55,11 @@ const buttons_attributes = [
         type: "Math_function",
         angle: "RAD",
     },
+
     {
         name: "log",
         symbol: " log( ",
-        formula: "Math.log10(",
+        formula: "Math.log10(", // [ 'Math.log(', '1', '0', ')' ].join(''); ==> "Math.log(10)"
         type: "Math_function",
     },
     {
@@ -64,6 +74,7 @@ const buttons_attributes = [
         formula: "Math.sqrt(",
         type: "number",
     },
+
     {
         name: "exp",
         symbol: "E ",
@@ -106,6 +117,7 @@ const buttons_attributes = [
         formula: "Math.log(",
         type: "Math_function",
     },
+
     //   Typography
     {
         name: "(",
@@ -119,6 +131,7 @@ const buttons_attributes = [
         formula: ")",
         type: "braces",
     },
+
     // To clear displayed expression
     {
         name: "clearAll",
@@ -132,6 +145,7 @@ const buttons_attributes = [
         formula: false,
         type: "backspace",
     },
+
     // Numbers
     {
         name: "7",
@@ -193,6 +207,7 @@ const buttons_attributes = [
         formula: 0,
         type: "number",
     },
+
     //   Operators
     {
         name: "subtraction",
@@ -236,6 +251,7 @@ const buttons_attributes = [
         formula: "%",
         type: "operator",
     },
+
     //   Functions
     {
         name: "calculate",
@@ -261,6 +277,7 @@ const buttons_attributes = [
         formula: "2**",
         type: "power_2",
     },
+
     //   Stroing buttons details
     {
         name: "MC",
@@ -293,4 +310,5 @@ const buttons_attributes = [
         type: "storing_buttons",
     },
 ];
+
 export default buttons_attributes;
